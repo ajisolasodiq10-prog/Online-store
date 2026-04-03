@@ -19,13 +19,13 @@ const app = express();
 
 // ── Connect to MongoDB ────────────────────────────────────────
 connectDB();
-//cors is added
-const allowedOrigins = [process.env.API_BASE_URL]; //|| "http://localhost:3000";
-const corsOptions = {
-  origin: allowedOrigins,
-  credentials: true,
-};
-app.use(cors(corsOptions));
+
+app.use(
+  cors({
+    origin: process.env.API_BASE_URL,
+    credentials: true,
+  }),
+);
 
 // ── Global Middleware ─────────────────────────────────────────
 app.use(express.json()); // parse application/json bodies
@@ -38,17 +38,19 @@ app.use("/api/products", productRoutes); // CRUD + toggle
 app.use("/api", orderRoutes); // POST /api/generate-whatsapp-link
 
 // ── Admin page route (form page) ─────────────────────────────
-app.get("/admin", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "index.html"));
-});
+app.get(
+  "/admin",
+  //no sendFile
+);
 
 // ── Health check ──────────────────────────────────────────────
 // app.get("/", (req, res) => {
 //   res.json({ status: "ok", message: "WhatsApp Ordering API is running." });
 // });
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "/index.html"));
-});
+app.get(
+  "*",
+  // no sendFile
+);
 
 // ── 404 handler ───────────────────────────────────────────────
 app.use((req, res) => {
