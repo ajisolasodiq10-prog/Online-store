@@ -11,7 +11,6 @@ const express = require("express");
 const connectDB = require("./config/db");
 const authRoutes = require("./routes/authRoutes");
 const productRoutes = require("./routes/productRoutes");
-const packageRoutes = require("./routes/packageRoutes");
 const orderRoutes = require("./routes/orderRoutes");
 
 const app = express();
@@ -28,7 +27,6 @@ app.use(express.static(path.join(__dirname, "public")));
 // ── Routes ────────────────────────────────────────────────────
 app.use("/api/admin", authRoutes); // POST /api/admin/register, /api/admin/login
 app.use("/api/products", productRoutes); // CRUD + toggle
-app.use("/api/packages", packageRoutes); // CRUD + populated products
 app.use("/api", orderRoutes); // POST /api/generate-whatsapp-link
 
 // ── Admin page route (form page) ──────────────────────────────
