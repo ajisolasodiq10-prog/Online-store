@@ -19,8 +19,8 @@ const app = express();
 
 // ── Connect to MongoDB ────────────────────────────────────────
 connectDB();
-
-const allowedOrigins = [process.env.API_BASE_URL  //|| "http://localhost:3000"];
+//cors is added
+const allowedOrigins = [process.env.API_BASE_URL]; //|| "http://localhost:3000";
 const corsOptions = {
   origin: allowedOrigins,
   credentials: true,
