@@ -22,7 +22,7 @@ connectDB();
 
 app.use(
   cors({
-    origin: process.env.API_BASE_URL,
+    origin: "https://hypepack.vercel.app/",
     credentials: true,
   }),
 );
@@ -30,7 +30,7 @@ app.use(
 // ── Global Middleware ─────────────────────────────────────────
 app.use(express.json()); // parse application/json bodies
 app.use(express.urlencoded({ extended: true })); // parse application/x-www-form-urlencoded
-app.use(express.static(path.join(__dirname, "public")));
+// app.use(express.static(path.join(__dirname, "public")));
 
 // ── Routes ────────────────────────────────────────────────────
 app.use("/api/", authRoutes); // POST /api/admin/register, /api/admin/login
@@ -38,19 +38,18 @@ app.use("/api/products", productRoutes); // CRUD + toggle
 app.use("/api", orderRoutes); // POST /api/generate-whatsapp-link
 
 // ── Admin page route (form page) ─────────────────────────────
-app.get(
-  "/admin",
-  //no sendFile
-);
+// app.get(
+//   "/admin",
+//   //no sendFile
+// );
 
-// ── Health check ──────────────────────────────────────────────
-// app.get("/", (req, res) => {
-//   res.json({ status: "ok", message: "WhatsApp Ordering API is running." });
-// });
-app.get(
-  "*",
-  // no sendFile
-);
+// // ── Health check ──────────────────────────────────────────────
+// // app.get("/", (req, res) => {
+// //   res.json({ status: "ok", message: "WhatsApp Ordering API is running." });
+// // });
+app.get("*", (req, res) => {
+  res.json({ status: "ok", message: "Backend is running" });
+});
 
 // ── 404 handler ───────────────────────────────────────────────
 app.use((req, res) => {
@@ -69,7 +68,7 @@ app.use((err, req, res, next) => {
 });
 
 // ── Start server ──────────────────────────────────────────────
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT;
 app.listen(PORT, () => {
   console.log(`\n🚀  Server running at http://localhost:${PORT}`);
 });
