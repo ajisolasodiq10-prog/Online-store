@@ -33,11 +33,11 @@ app.use(express.urlencoded({ extended: true })); // parse application/x-www-form
 app.use(express.static(path.join(__dirname, "public")));
 
 // ── Routes ────────────────────────────────────────────────────
-app.use("/api/admin", authRoutes); // POST /api/admin/register, /api/admin/login
+app.use("/api/", authRoutes); // POST /api/admin/register, /api/admin/login
 app.use("/api/products", productRoutes); // CRUD + toggle
 app.use("/api", orderRoutes); // POST /api/generate-whatsapp-link
 
-// ── Admin page route (form page) ──────────────────────────────
+// ── Admin page route (form page) ─────────────────────────────
 app.get("/admin", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "index.html"));
 });
