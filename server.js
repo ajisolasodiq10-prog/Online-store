@@ -8,6 +8,7 @@ require("dotenv").config();
 const path = require("path");
 
 const express = require("express");
+const cors = require("cors");
 const connectDB = require("./config/db");
 const authRoutes = require("./routes/authRoutes");
 const productRoutes = require("./routes/productRoutes");
@@ -18,6 +19,13 @@ const app = express();
 
 // ── Connect to MongoDB ────────────────────────────────────────
 connectDB();
+
+const allowedOrigins = [process.env.API_BASE_URL  //|| "http://localhost:3000"];
+const corsOptions = {
+  origin: allowedOrigins,
+  credentials: true,
+};
+app.use(cors(corsOptions));
 
 // ── Global Middleware ─────────────────────────────────────────
 app.use(express.json()); // parse application/json bodies
