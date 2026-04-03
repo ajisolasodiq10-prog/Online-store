@@ -1,0 +1,20 @@
+// ─────────────────────────────────────────────────────────────
+// config/db.js
+//
+// Connects to MongoDB using the URI from .env.
+// Called once at server startup before any routes are registered.
+// ─────────────────────────────────────────────────────────────
+
+const mongoose = require("mongoose");
+
+const connectDB = async () => {
+  try {
+    await mongoose.connect(process.env.MONGO_URI);
+    console.log("✅  MongoDB connected:", mongoose.connection.name);
+  } catch (error) {
+    console.error("❌  MongoDB connection failed:", error.message);
+    process.exit(1);
+  }
+};
+
+module.exports = connectDB;
