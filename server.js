@@ -22,7 +22,7 @@ connectDB();
 
 app.use(
   cors({
-    origin: "https://hypepack.vercel.app/",
+    origin: "https://hypepack.vercel.app",
     credentials: true,
   }),
 );
@@ -38,10 +38,6 @@ app.use("/api/products", productRoutes); // CRUD + toggle
 app.use("/api", orderRoutes); // POST /api/generate-whatsapp-link
 
 // ── Admin page route (form page) ─────────────────────────────
-// app.get(
-//   "/admin",
-//   //no sendFile
-// );
 
 // // ── Health check ──────────────────────────────────────────────
 // // app.get("/", (req, res) => {
