@@ -22,8 +22,12 @@ connectDB();
 
 app.use(
   cors({
-    origin: "https://hypepack.vercel.app",
-    credentials: true,
+    origin:[
+       "https://hypepack.vercel.app",
+             "https://uniosunstore.com",
+             "https://www.uniosunstore.com",
+            ],
+      credentials: true,
   }),
 );
 
