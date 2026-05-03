@@ -83,8 +83,8 @@ const buildOrderMessage = ({ packages, products, user, total }) => {
   // if (user.department) lines.push(`  Department: ${user.department}`);
   // if (user.phone) lines.push(`  Phone:      ${user.phone}`);
   // lines.push("  *Thank you!*");
-  lines.push("  Any additional products you want to include can go here:");
-  lines.push("  ");
+  lines.push("  Name below any additional products you wish to buy:");
+  lines.push("");
 
   return lines.join("\n");
 };
