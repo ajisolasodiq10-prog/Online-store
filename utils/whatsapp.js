@@ -79,10 +79,10 @@ const buildOrderMessage = ({ packages, products, user, total }) => {
 
   // ── Customer info ─────────────────────────────────────────
   lines.push("👤 *Customer Details:*");
-  lines.push(`  Name:       ${user.name}`);
+  lines.push(`  Name:       ${user.name}, *thank you* for your patronage!`);
   // if (user.department) lines.push(`  Department: ${user.department}`);
   // if (user.phone) lines.push(`  Phone:      ${user.phone}`);
-  lines.push("  *Thank you!*");
+  // lines.push("  *Thank you!*");
   lines.push("  Any additional products you want to include can go here:");
   lines.push("  ");
 
