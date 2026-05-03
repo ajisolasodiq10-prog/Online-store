@@ -79,7 +79,7 @@ const buildOrderMessage = ({ packages, products, user, total }) => {
 
   // ── Customer info ─────────────────────────────────────────
   lines.push("👤 *Customer Details:*");
-  lines.push(`  Name:       ${user.name}, *thank you* for your patronage!`);
+  lines.push(`We appreciate your patronage ${user.name} 😍🎁`);
   // if (user.department) lines.push(`  Department: ${user.department}`);
   // if (user.phone) lines.push(`  Phone:      ${user.phone}`);
   // lines.push("  *Thank you!*");
