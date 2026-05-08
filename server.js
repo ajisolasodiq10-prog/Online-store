@@ -25,7 +25,7 @@ app.use(
     origin:[
        "https://hypepack.vercel.app",
              "https://uniosunstore.com",
-             "https://www.uniosunstore.com",
+             
             ],
       credentials: true,
   }),
